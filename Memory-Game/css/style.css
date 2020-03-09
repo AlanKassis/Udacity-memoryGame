@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, system-ui, sans-serif;  justify-content: center;
+   background-color: black;
+}
+
+.banner {
+  width:100%;
+  background-color:black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height:250px;
+
+}
+
+.credits {
+  margin-top: 5px;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+img {
+  /* make them match their parent */
+  width: inherit;
+  height: inherit;
+}
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Without this rule I get huge trailing white space */
+   /* border: solid 10px #c2a421; */
+   background-color:rgb(40, 112, 135);
+   min-height: calc(100vh - 20px);
+}
+.game {
+  display: grid;
+  margin-top: 1vh;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+  /* I want to cry */
+  /* grid-template-columns: repeat(4, fit-content(150em)); */
+  grid-template-columns: repeat(4, fit-content(1em));
+   /* grid-template-columns: repeat(4, minmax(50px, 200px)); */
+   /* the squares will size according to their content*/
+   /* which means we need viewport specific respnsive content */
+   /* use srcset for the images */
+   /* grid-template-rows: repeat(4,fit-content(10em)); */
+   padding: 30px;
+   padding-bottom: 50px;
+   grid-gap:25px;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.card {
+  /* background-color: transparent; */
+  width: 200px;
+  height: 200px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+/* .card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+.card.visible .flip-card-inner {
+  transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari
+  /* backface-visibility: hidden; */
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    transform: rotateY(180deg);
+}
+
+/* Style the back side */
+.flip-card-back {
+  border: 3px solid black;
+}
+
+.footer {
+  background-color: red;
+  display: flex;
+  justify-content:space-between;
+}
+
+.restart {
+  margin-bottom: 3vh;
+  display: flex;
+  justify-content: center;
+  width:auto;
+  border: 2px solid black;
+  padding: 10px;
+  background-color: crimson;
+  transition: transform .8s ease-in-out;
+}
+
+.restart:hover {
+  transform:scale(1.1);
+  background-color: white;
+  color:red;
+}
+
+.stats-container {
+  grid-column: 1 / 5 ;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  background-color: red;
+  border: 3px solid black;
+}
+
+.score {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.star-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.moves-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+.star {
+  width:25%;
+}
+
+@media only screen and (max-width: 360px) {
+  .credits {
+    display: none;
+  }
+  .card {
+   width: 50px;
+   height:50px;
+  }
+
+  .game-container {
+    justify-content: flex-start;
+    min-height: calc(50vh - 20px);
+  }
+  .game {
+    margin-top: 0;
+    grid-gap:5px;
+    grid-template-columns: repeat(4, 50px);
+    padding-bottom: 5px;
+    padding-top: 10px;
+  }
+
+  .flip-card-back {
+    border: 1px solid black;
+  }
+  .stats-container {
+    font-size: 8px;
+    min-height: 50px;
+  }
+  .score {
+    max-width: 50px;
+  }
+  .star {
+    width:10%;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: red;
+  margin: 15% auto;
+  padding: 20px;
+  width:80%;
+}
+
+@media only screen and (min-width: 361px) and (max-width: 945px) {
+  .credits {
+    display: none;
+  }
+  .game-container {
+    justify-content: flex-start;
+     min-height: calc(50vh - 20px);
+  }
+
+  .game {
+    grid-gap:10px;
+      grid-template-columns: repeat(4, 50px);
+  }
+  .card {
+   width: 50px;
+   height:50px;
+  }
+
+  .stats-container {
+    font-size: 12px;
+  }
+
+  .timer {
+    padding-left: 2px;
+  }
