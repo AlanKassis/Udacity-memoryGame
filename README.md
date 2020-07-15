@@ -14,5 +14,3 @@ It was my first time using JavaScript,css and html together, so I struggled a li
 I made the spider image and stars using Adobe Illustrator. All the card images were downloaded for free from
 [here](https://vertexfrog.itch.io/free-stylised-fantasy-weapons)
 
-## Why is the project submitted late
-I was on track to submit this project on time, however, I got really sick with a Virus and Shingles. Because of this I was hospitalized and wasn't able to complete the project until I recovered. 
